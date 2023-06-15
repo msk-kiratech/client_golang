@@ -1,4 +1,4 @@
-module github.com/prometheus/client_golang
+module github.com/msk-kiratech/client_golang
 
 go 1.17
 
@@ -30,4 +30,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-exclude github.com/prometheus/client_golang v1.12.1
+exclude github.com/msk-kiratech/client_golang v1.12.1

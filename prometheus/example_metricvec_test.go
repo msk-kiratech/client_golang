@@ -21,7 +21,7 @@ import (
 
 	dto "github.com/prometheus/client_model/go"
 
-	"github.com/prometheus/client_golang/prometheus"
+	"github.com/msk-kiratech/client_golang/prometheus"
 )
 
 // Info implements an info pseudo-metric, which is modeled as a Gauge that
