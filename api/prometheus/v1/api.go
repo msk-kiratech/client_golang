@@ -1448,7 +1448,7 @@ func (h *apiClientImpl) DoGetFallback(ctx context.Context, u *url.URL, args url.
 	u.RawQuery = encodedArgs
 	req, err = http.NewRequest(http.MethodGet, u.String(), nil)
 	if err != nil {
-		return nil, nil, warnings, err
+		return nil, nil, nil, err
 	}
 	return h.Do(ctx, req)
 	//return resp, body, warnings, err
