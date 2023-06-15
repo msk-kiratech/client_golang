@@ -1443,16 +1443,15 @@ func (h *apiClientImpl) DoGetFallback(ctx context.Context, u *url.URL, args url.
 	// the header is not sent on the wire.
 	req.Header["Idempotency-Key"] = nil
 
-	resp, body, warnings, err := h.Do(ctx, req)
-	if resp != nil && (resp.StatusCode == http.StatusMethodNotAllowed || resp.StatusCode == http.StatusNotImplemented) {
-		u.RawQuery = encodedArgs
-		req, err = http.NewRequest(http.MethodGet, u.String(), nil)
-		if err != nil {
-			return nil, nil, warnings, err
-		}
-		return h.Do(ctx, req)
+	//resp, body, warnings, err := h.Do(ctx, req)
+	//if resp != nil && (resp.StatusCode == http.StatusMethodNotAllowed || resp.StatusCode == http.StatusNotImplemented) {
+	u.RawQuery = encodedArgs
+	req, err = http.NewRequest(http.MethodGet, u.String(), nil)
+	if err != nil {
+		return nil, nil, warnings, err
 	}
-	return resp, body, warnings, err
+	return h.Do(ctx, req)
+	//return resp, body, warnings, err
 }
 
 func formatTime(t time.Time) string {
